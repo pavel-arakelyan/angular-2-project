@@ -1,0 +1,90 @@
+.DS_Store
+*.iml
+*.sh
+*.swp
+
+
+
+# all the maven target directories
+# Note: use absolute paths (starting with /)
+# to prevent ignoring non-maven directories named `target'
+bin
+target
+.idea
+node_modules
+rebel.xml
+/idm-java/autode-integration-api/target/
+/idm-java/autode-integration-impl/target/
+/idm-java/idm-audit-api-impl/target/
+/idm-java/idm-audit-api/target/
+/idm-java/idm-commons/target/
+/idm-java/idm-db-helper/target/
+/idm-java/idm-db/target/
+/idm-java/idm-dm-api/target/
+/idm-java/idm-dm-engine/target/
+/idm-java/idm-expressions-dao-api/target/
+/idm-java/idm-kb-api/target/
+/idm-java/idm-kb-db/target/
+/idm-java/idm-kb-expression-api/target/
+/idm-java/idm-kb-expression/target/
+/idm-java/idm-kb-functions/target/
+/idm-java/idm-kb-reporting/target/
+/idm-java/idm-languages-impl/target/
+/idm-java/idm-languages/target/
+/idm-java/idm-notification-service-api/target/
+/idm-java/idm-notification-service-impl/target/
+/idm-java/idm-policy-api-impl/target/
+/idm-java/idm-policy-api/target/
+/idm-java/idm-reporting-api-ex/target/
+/idm-java/idm-reporting-api-impl/target/
+/idm-java/idm-reporting-api/target/
+/idm-java/idm-reporting-common-renderers/target/
+/idm-java/idm-reporting-engine/target/
+/idm-java/idm-reporting-utility/target/
+/idm-java/idm-tests/target/
+/idm-java/idm-um-api/target/
+/idm-java/idm-um-impl/target/
+/idm-java/idm-um-socialframework/target/
+/idm-java/idm-web/autode-builder-api/target/
+/idm-java/idm-web/autode-core/target/
+/idm-java/idm-web/idm-cascade-service/target/
+/idm-java/idm-web/idm-data-service/target/
+/idm-java/idm-web/idm-dm-ui/target/
+/idm-java/idm-web/idm-filtering-service/target/
+/idm-java/idm-web/idm-kb-expression-service/target/
+/idm-java/idm-web/idm-language-helper/target/
+/idm-java/idm-web/idm-ui-analytics-designer/target/
+/idm-java/idm-web/idm-ui-analytics-manager/target/
+/idm-java/idm-web/idm-ui-analytics-memviews/target/
+/idm-java/idm-web/idm-ui-de/target/
+/idm-java/idm-web/idm-ui-kbdesigner/target/
+/idm-java/idm-web/idm-ui-languages/target/
+/idm-java/idm-web/idm-ui-organizer/target/
+/idm-java/idm-web/idm-ui-um/target/
+/idm-java/idm-web/idm-ui/target/
+/idm-java/idm-web/idm-ui-home/target/
+/idm-js/idm-ui-controls/target/
+/idm-java/idm-utils-logging/target/
+*.bat
+
+# eclipse generates files and directories
+.classpath
+.project
+.settings/
+
+# build-generated files
+# Note: use absolute paths (starting with /)
+# to prevent ignoring static files with
+# same names, if any
+/idm-js/idm-ui-controls/src/main/webapp/resources/com/synisys/idm/concatenatedCss/
+/idm-js/idm-ui-controls/src/main/webapp/resources/com/synisys/idm/concatenatedJs/
+/idm-js/idm-ui-controls/src/main/webapp/resources/com/synisys/idm/templatesJs/
+*.versionsBackup
+# Overlays
+/idm-java/idm-web/idm-ui/overlays/
+
+# Build configuration and supporting files
+/idm-java/idm-web/idm-ui/config.properties
+/idm-dev-db/git.properties
+/idm-java/idm-web/idm-ui/src/main/webapp/META-INF/
+/idm-java/idm-web/idm-ui/src/main/webapp/META-INF/**
