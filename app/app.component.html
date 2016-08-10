@@ -1,0 +1,17 @@
+<h1>{{title}}</h1>
+<!--<nav>
+    <a [routerLink]="['/dashboard']" routerLinkActive="active">Dashboard</a>
+    <a [routerLink]="['/portfolio']" routerLinkActive="active">Portfolio</a>
+</nav>
+<router-outlet></router-outlet>-->
+
+<nav>
+<div *ngFor="let tab of tabs">
+    <tab [tab]="tab">
+        Some content
+    </tab>
+</div>
+</nav>
+<div style="border: 1px solid blue;">
+    <router-outlet></router-outlet>
+</div>
