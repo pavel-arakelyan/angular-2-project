@@ -1,8 +1,8 @@
 "use strict";
 var Tab = (function () {
-    function Tab(id, name, routeLink) {
+    function Tab(id, messageId, routeLink) {
         this.id = id;
-        this.name = name;
+        this.messageId = messageId;
         this.routeLink = routeLink;
     }
     return Tab;

@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { TabComponent } from '../../tab/tab.component.ts';
 
 @Component({
-    selector: 'overview',
+    selector: 'spec',
     templateUrl: 'app/component/dashboard/spec/spec.component.html',
     styleUrls: ['app/component/dashboard/spec/spec.component.css'],
     directives: [TabComponent]

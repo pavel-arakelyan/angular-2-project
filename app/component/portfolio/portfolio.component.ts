@@ -12,7 +12,7 @@ import { TabComponent } from '../tab/tab.component.ts';
 })
 export class PortfolioComponent {
 
-    tabs: Tab[] = [];
+/*    tabs: Tab[] = [];
 
     constructor(
         private tabService: TabService) {
@@ -21,7 +21,7 @@ export class PortfolioComponent {
     ngOnInit() {
         this.tabService.getTabs()
             .then(tabs => this.tabs = tabs);
-    }
+    }*/
 
     /*gotoDetail(tab: Tab) {
         let link = ['/detail', tab.id];

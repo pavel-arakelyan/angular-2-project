@@ -10,13 +10,13 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 };
 var core_1 = require('@angular/core');
 var TABS = [
-    { id: 1, name: 'Dashboard', routeLink: '/dashboard', selected: false,
+    { id: 1, messageId: 'tab.dashboard', routeLink: '/dashboard', selected: false,
         subTabs: [
-            { id: 1, name: 'Overview', routeLink: '/dashboard/overview', selected: false },
-            { id: 2, name: 'Specification', routeLink: '/dashboard/spec', selected: false }
+            { id: 1, messageId: 'subTab.overview', routeLink: '/dashboard/overview', selected: false },
+            { id: 2, messageId: 'subTab.spec', routeLink: '/dashboard/spec', selected: false }
         ]
     },
-    { id: 2, name: 'Portfolio', routeLink: '/portfolio', selected: false, subTabs: [] }
+    { id: 2, messageId: 'tab.portfolio', routeLink: '/portfolio', selected: false, subTabs: [] }
 ];
 var TabService = (function () {
     function TabService() {

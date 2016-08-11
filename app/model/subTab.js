@@ -1,8 +1,8 @@
 "use strict";
 var SubTab = (function () {
-    function SubTab(id, name, routeLink) {
+    function SubTab(id, messageId, routeLink) {
         this.id = id;
-        this.name = name;
+        this.messageId = messageId;
         this.routeLink = routeLink;
     }
     return SubTab;

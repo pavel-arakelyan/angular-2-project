@@ -9,18 +9,10 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 var core_1 = require('@angular/core');
-var tabs_service_ts_1 = require('../../service/tabs.service.ts');
 var tab_component_ts_1 = require('../tab/tab.component.ts');
 var PortfolioComponent = (function () {
-    function PortfolioComponent(tabService) {
-        this.tabService = tabService;
-        this.tabs = [];
+    function PortfolioComponent() {
     }
-    PortfolioComponent.prototype.ngOnInit = function () {
-        var _this = this;
-        this.tabService.getTabs()
-            .then(function (tabs) { return _this.tabs = tabs; });
-    };
     PortfolioComponent = __decorate([
         core_1.Component({
             selector: 'portfolio',
@@ -28,7 +20,7 @@ var PortfolioComponent = (function () {
             styleUrls: ['app/component/portfolio/portfolio.component.css'],
             directives: [tab_component_ts_1.TabComponent],
         }), 
-        __metadata('design:paramtypes', [tabs_service_ts_1.TabService])
+        __metadata('design:paramtypes', [])
     ], PortfolioComponent);
     return PortfolioComponent;
 }());

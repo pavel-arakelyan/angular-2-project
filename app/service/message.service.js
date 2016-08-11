@@ -9,20 +9,16 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 var core_1 = require('@angular/core');
-var tab_component_ts_1 = require('../../tab/tab.component.ts');
-var SpecComponent = (function () {
-    function SpecComponent() {
+var MessageService = (function () {
+    function MessageService() {
     }
-    SpecComponent = __decorate([
-        core_1.Component({
-            selector: 'spec',
-            templateUrl: 'app/component/dashboard/spec/spec.component.html',
-            styleUrls: ['app/component/dashboard/spec/spec.component.css'],
-            directives: [tab_component_ts_1.TabComponent]
-        }), 
+    MessageService.prototype.getMessage = function (id, lang) {
+    };
+    MessageService = __decorate([
+        core_1.Injectable(), 
         __metadata('design:paramtypes', [])
-    ], SpecComponent);
-    return SpecComponent;
+    ], MessageService);
+    return MessageService;
 }());
-exports.SpecComponent = SpecComponent;
-//# sourceMappingURL=spec.component.js.map
+exports.MessageService = MessageService;
+//# sourceMappingURL=message.service.js.map

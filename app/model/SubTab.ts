@@ -2,13 +2,13 @@ import {NavigationItem} from './navigation.item';
 
 export class SubTab implements NavigationItem{
     id: number;
-    name: string;
+    messageId: string;
     routeLink: string;
     selected: boolean;
 
-    constructor(id:number, name:string, routeLink: string) {
+    constructor(id:number, messageId: string, routeLink: string) {
         this.id = id;
-        this.name = name;
+        this.messageId = messageId;
         this.routeLink = routeLink;
     }
 }

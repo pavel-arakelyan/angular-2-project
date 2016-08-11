@@ -14,6 +14,7 @@
         '@angular/router-deprecated': 'https://npmcdn.com/@angular/router-deprecated' + routerDeprecatedVer,
         'angular2-in-memory-web-api': 'https://npmcdn.com/angular2-in-memory-web-api', // get latest
         'rxjs':                       'https://npmcdn.com/rxjs@5.0.0-beta.6',
+        'ng2-translate':              'node_modules/ng2-translate',
         'ts':                         'https://npmcdn.com/plugin-typescript@4.0.10/lib/plugin.js',
         'typescript':                 'https://npmcdn.com/typescript@1.9.0-dev.20160409/lib/typescript.js'
     };
@@ -22,7 +23,8 @@
     var packages = {
         'app':                        { main: 'main.ts',  defaultExtension: 'ts' },
         'rxjs':                       { defaultExtension: 'js' },
-        'angular2-in-memory-web-api': { main: 'index.js', defaultExtension: 'js' }
+        'angular2-in-memory-web-api': { main: 'index.js', defaultExtension: 'js' },
+        "ng2-translate":              {defaultExtension: "js"}
     };
     
     var ngPackageNames = [

@@ -3,14 +3,14 @@ import {SubTab} from "./subTab";
 
 export class Tab implements NavigationItem{
     id: number;
-    name: string;
+    messageId: string;
     routeLink: string;
     selected: boolean;
     subTabs: SubTab[];
     
-    constructor(id:number, name:string, routeLink: string) {
+    constructor(id:number, messageId:string, routeLink: string) {
         this.id = id;
-        this.name = name;
+        this.messageId = messageId;
         this.routeLink = routeLink;
     }
 }

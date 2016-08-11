@@ -1,6 +1,6 @@
 export interface NavigationItem{
     id: number;
-    name: string;
+    messageId: string;
     routeLink: string;
     selected: boolean;
 }
