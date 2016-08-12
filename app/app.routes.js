@@ -5,11 +5,11 @@ var dashboard_component_ts_1 = require('./component/dashboard/dashboard.componen
 var routes = [
     {
         path: '',
-        redirectTo: '/portfolio',
+        redirectTo: '/en/portfolio',
         pathMatch: 'full'
     },
     {
-        path: 'dashboard',
+        path: ':lang/dashboard',
         component: dashboard_component_ts_1.DashboardComponent /*,
         children: [
             { path: '', redirectTo: 'overview', pathMatch: 'full' },
@@ -18,7 +18,7 @@ var routes = [
         ]*/
     },
     {
-        path: 'portfolio',
+        path: ':lang/portfolio',
         component: portfolio_component_ts_1.PortfolioComponent
     }
 ];

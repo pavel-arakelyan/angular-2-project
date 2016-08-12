@@ -9,10 +9,28 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 var core_1 = require('@angular/core');
+var router_1 = require('@angular/router');
 var tab_component_ts_1 = require('../tab/tab.component.ts');
+var message_service_1 = require("../../service/message.service");
 var DashboardComponent = (function () {
-    function DashboardComponent() {
+    function DashboardComponent(route, messageService) {
+        this.route = route;
+        this.messageService = messageService;
+        this._routeParamsSubscription = null;
     }
+    DashboardComponent.prototype.ngOnInit = function () {
+        var _this = this;
+        this._routeParamsSubscription = this.route.params.subscribe(function (params) {
+            var lang = params["lang"];
+            _this.messageService.useLanguage(lang);
+        });
+        console.log(this.messageService.getCurrentLanguage());
+    };
+    DashboardComponent.prototype.ngOnDestroy = function () {
+        if (this._routeParamsSubscription) {
+            this._routeParamsSubscription.unsubscribe();
+        }
+    };
     DashboardComponent = __decorate([
         core_1.Component({
             selector: 'dashboard',
@@ -20,7 +38,7 @@ var DashboardComponent = (function () {
             styleUrls: ['app/component/dashboard/dashboard.component.css'],
             directives: [tab_component_ts_1.TabComponent]
         }), 
-        __metadata('design:paramtypes', [])
+        __metadata('design:paramtypes', [router_1.ActivatedRoute, message_service_1.MessageService])
     ], DashboardComponent);
     return DashboardComponent;
 }());

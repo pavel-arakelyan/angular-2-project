@@ -10,30 +10,35 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 };
 var core_1 = require('@angular/core');
 var router_1 = require('@angular/router');
-var ng2_translate_1 = require('ng2-translate/ng2-translate');
 var tabs_service_ts_1 = require('./service/tabs.service.ts');
 var tab_component_ts_1 = require('./component/tab/tab.component.ts');
+var message_service_1 = require("./service/message.service");
 var AppComponent = (function () {
-    function AppComponent(tabService, translate) {
+    function AppComponent(tabService, messageService) {
         this.tabService = tabService;
-        this.translate = translate;
+        this.messageService = messageService;
         this.title = 'Sample tabs Navigation';
         this.tabs = [];
         this.languages = ['en', 'ru'];
     }
     AppComponent.prototype.ngOnInit = function () {
         var _this = this;
-        this.translate.setDefaultLang('en');
-        this.translate.use('en');
+        //this.messageService.setDefaultLanguage('en');
+        //console.log(this.messageService.getCurrentLanguage());
+        //this.translate.use('en');
+        this.messageService.getCurrentLanguage().subscribe(function (currentLang) {
+            _this.currentLanguage = currentLang;
+        });
+        this.messageService.useLanguage(this.currentLanguage);
         this.tabService.getTabs()
             .then(function (tabs) { return _this.tabs = tabs; });
     };
-    AppComponent.prototype.isCurrentLang = function (lang) {
-        return lang === this.translate.currentLang;
-    };
+    /*  isCurrentLang(lang: string) {
+          return lang === this.messageService.getCurrentLanguage();
+      }*/
     AppComponent.prototype.selectLang = function (lang) {
         // set default;
-        this.translate.use(lang);
+        this.messageService.useLanguage(lang);
     };
     AppComponent = __decorate([
         core_1.Component({
@@ -45,7 +50,7 @@ var AppComponent = (function () {
                 tabs_service_ts_1.TabService
             ]
         }), 
-        __metadata('design:paramtypes', [tabs_service_ts_1.TabService, ng2_translate_1.TranslateService])
+        __metadata('design:paramtypes', [tabs_service_ts_1.TabService, message_service_1.MessageService])
     ], AppComponent);
     return AppComponent;
 }());

@@ -5,6 +5,7 @@ import {TRANSLATE_PROVIDERS, TranslateService, TranslatePipe, TranslateLoader, T
 import { Tab } from './model/tab';
 import { TabService } from './service/tabs.service.ts';
 import { TabComponent } from './component/tab/tab.component.ts';
+import {MessageService} from "./service/message.service";
 
 @Component({
     selector: 'my-app',
@@ -19,26 +20,33 @@ export class AppComponent {
     title = 'Sample tabs Navigation';
     tabs: Tab[] = [];
     languages: string[] = ['en', 'ru'];
+    currentLanguage:string;
 
-    constructor(private tabService: TabService, private translate: TranslateService) {
+    constructor(private tabService: TabService, private messageService: MessageService) {
 
     }
 
     ngOnInit() {
-        this.translate.setDefaultLang('en');
-        this.translate.use('en');
+        //this.messageService.setDefaultLanguage('en');
+        //console.log(this.messageService.getCurrentLanguage());
+        //this.translate.use('en');
+        this.messageService.getCurrentLanguage().subscribe(currentLang =>{
+            this.currentLanguage = currentLang
+        });
+        this.messageService.useLanguage(this.currentLanguage);
         this.tabService.getTabs()
             .then(tabs => this.tabs = tabs);
     }
 
-    isCurrentLang(lang: string) {
-        return lang === this.translate.currentLang;
-    }
+  /*  isCurrentLang(lang: string) {
+        return lang === this.messageService.getCurrentLanguage();
+    }*/
 
     selectLang(lang: string) {
         // set default;
-        this.translate.use(lang);
+        this.messageService.useLanguage(lang);
     }
+
 
  /*   initTranslate(translate: TranslateService): void{
         let userLang = navigator.language.split('-')[0]; // use navigator lang if available

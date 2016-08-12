@@ -9,11 +9,11 @@ import {SpecComponent} from "./component/dashboard/spec/spec.component";
 const routes: RouterConfig = [
     {
         path: '',
-        redirectTo: '/portfolio',
+        redirectTo: '/en/portfolio',
         pathMatch: 'full'
     },
     {
-        path: 'dashboard',
+        path: ':lang/dashboard',
         component: DashboardComponent/*,
         children: [
             { path: '', redirectTo: 'overview', pathMatch: 'full' },
@@ -22,7 +22,7 @@ const routes: RouterConfig = [
         ]*/
     },
     {
-        path: 'portfolio',
+        path: ':lang/portfolio',
         component: PortfolioComponent
     }
 ];

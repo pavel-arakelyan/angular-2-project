@@ -1,8 +1,10 @@
-import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
+import { Component, OnInit, OnDestroy } from '@angular/core';
+import { Router, ActivatedRoute } from '@angular/router';
 import { Tab } from '../../model/tab';
 import { TabService } from '../../service/tabs.service.ts';
 import { TabComponent } from '../tab/tab.component.ts';
+import {TranslateService} from "ng2-translate/ng2-translate";
+import {MessageService} from "../../service/message.service";
 
 @Component({
     selector: 'portfolio',
@@ -10,21 +12,26 @@ import { TabComponent } from '../tab/tab.component.ts';
     styleUrls: ['app/component/portfolio/portfolio.component.css'],
     directives: [TabComponent],
 })
-export class PortfolioComponent {
+export class PortfolioComponent implements OnInit, OnDestroy {
+    private _routeParamsSubscription:any = null;
+    private currentLanguage:string;
 
-/*    tabs: Tab[] = [];
-
-    constructor(
-        private tabService: TabService) {
+    constructor(private route:ActivatedRoute, private messageService: MessageService) {
     }
 
-    ngOnInit() {
-        this.tabService.getTabs()
-            .then(tabs => this.tabs = tabs);
-    }*/
 
-    /*gotoDetail(tab: Tab) {
-        let link = ['/detail', tab.id];
-        this.router.navigate(link);
-    }*/
+    ngOnInit():any {
+        this._routeParamsSubscription = this.route.params.subscribe(params => {
+            let lang = params["lang"];
+            this.messageService.useLanguage(lang);
+        });
+        console.log(this.messageService.getCurrentLanguage());
+    }
+
+
+    ngOnDestroy():any {
+        if (this._routeParamsSubscription) {
+            this._routeParamsSubscription.unsubscribe();
+        }
+    }
 }

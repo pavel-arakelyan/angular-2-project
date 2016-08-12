@@ -1,9 +1,12 @@
 "use strict";
 var Tab = (function () {
-    function Tab(id, messageId, routeLink) {
+    function Tab(id, messageId, routeLink, messageService) {
         this.id = id;
         this.messageId = messageId;
-        this.routeLink = routeLink;
+        var lang = '';
+        messageService.getCurrentLanguage().subscribe(function (language) { return lang = language; });
+        console.log(lang);
+        this.routeLink = lang + '/' + routeLink;
     }
     return Tab;
 }());

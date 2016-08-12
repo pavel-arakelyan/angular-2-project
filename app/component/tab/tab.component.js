@@ -12,9 +12,14 @@ var core_1 = require('@angular/core');
 var router_1 = require('@angular/router');
 var tab_1 = require('../../model/tab');
 var subtab_component_1 = require("../subtab/subtab.component");
+var message_service_1 = require("../../service/message.service");
 var TabComponent = (function () {
-    function TabComponent() {
+    //@Input() currentLanguage: string;
+    function TabComponent(messageService) {
+        this.messageService = messageService;
     }
+    TabComponent.prototype.ngOnInit = function () {
+    };
     __decorate([
         core_1.Input(), 
         __metadata('design:type', tab_1.Tab)
@@ -24,9 +29,9 @@ var TabComponent = (function () {
             selector: 'tab',
             templateUrl: 'app/component/tab/tab.component.html',
             styleUrls: ['app/component/tab/tab.component.css'],
-            directives: [router_1.ROUTER_DIRECTIVES, subtab_component_1.SubTabComponent],
+            directives: [router_1.ROUTER_DIRECTIVES, subtab_component_1.SubTabComponent]
         }), 
-        __metadata('design:paramtypes', [])
+        __metadata('design:paramtypes', [message_service_1.MessageService])
     ], TabComponent);
     return TabComponent;
 }());

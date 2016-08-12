@@ -9,10 +9,28 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 var core_1 = require('@angular/core');
+var router_1 = require('@angular/router');
 var tab_component_ts_1 = require('../tab/tab.component.ts');
+var message_service_1 = require("../../service/message.service");
 var PortfolioComponent = (function () {
-    function PortfolioComponent() {
+    function PortfolioComponent(route, messageService) {
+        this.route = route;
+        this.messageService = messageService;
+        this._routeParamsSubscription = null;
     }
+    PortfolioComponent.prototype.ngOnInit = function () {
+        var _this = this;
+        this._routeParamsSubscription = this.route.params.subscribe(function (params) {
+            var lang = params["lang"];
+            _this.messageService.useLanguage(lang);
+        });
+        console.log(this.messageService.getCurrentLanguage());
+    };
+    PortfolioComponent.prototype.ngOnDestroy = function () {
+        if (this._routeParamsSubscription) {
+            this._routeParamsSubscription.unsubscribe();
+        }
+    };
     PortfolioComponent = __decorate([
         core_1.Component({
             selector: 'portfolio',
@@ -20,7 +38,7 @@ var PortfolioComponent = (function () {
             styleUrls: ['app/component/portfolio/portfolio.component.css'],
             directives: [tab_component_ts_1.TabComponent],
         }), 
-        __metadata('design:paramtypes', [])
+        __metadata('design:paramtypes', [router_1.ActivatedRoute, message_service_1.MessageService])
     ], PortfolioComponent);
     return PortfolioComponent;
 }());
