@@ -12,9 +12,6 @@ export class Tab implements NavigationItem{
     constructor(id:number, messageId:string, routeLink: string, messageService: MessageService) {
         this.id = id;
         this.messageId = messageId;
-        let lang: string = '';
-        messageService.getCurrentLanguage().subscribe(language => lang = language);
-        console.log(lang);
-        this.routeLink = lang + '/' + routeLink;
+        this.routeLink = routeLink;
     }
 }

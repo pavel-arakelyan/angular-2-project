@@ -21,11 +21,11 @@ export class PortfolioComponent implements OnInit, OnDestroy {
 
 
     ngOnInit():any {
-        this._routeParamsSubscription = this.route.params.subscribe(params => {
+        /*this._routeParamsSubscription = this.route.params.subscribe(params => {
             let lang = params["lang"];
             this.messageService.useLanguage(lang);
         });
-        console.log(this.messageService.getCurrentLanguage());
+        console.log(this.messageService.getCurrentLanguage());*/
     }
 
 

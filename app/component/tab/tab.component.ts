@@ -3,6 +3,7 @@ import { ROUTER_DIRECTIVES } from '@angular/router';
 import { Tab } from '../../model/tab';
 import {SubTabComponent} from "../subtab/subtab.component";
 import {MessageService} from "../../service/message.service";
+import {LanguageService} from "../../service/language.service";
 
 @Component({
     selector: 'tab',
@@ -12,14 +13,15 @@ import {MessageService} from "../../service/message.service";
 })
 export class TabComponent implements OnInit{
     @Input() tab: Tab;
-    //@Input() currentLanguage: string;
+    tabTitle:string;
 
-
-    constructor(private messageService:MessageService) {
+    constructor(private messageService:MessageService, private languageService:LanguageService) {
     }
 
 
     ngOnInit():any {
-      
+      this.languageService.getCurrentLanguage().subscribe((lang) =>{
+          this.tabTitle = this.messageService.getMessage(this.tab.messageId, lang);
+      })
     }
 }

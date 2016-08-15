@@ -19,12 +19,11 @@ var PortfolioComponent = (function () {
         this._routeParamsSubscription = null;
     }
     PortfolioComponent.prototype.ngOnInit = function () {
-        var _this = this;
-        this._routeParamsSubscription = this.route.params.subscribe(function (params) {
-            var lang = params["lang"];
-            _this.messageService.useLanguage(lang);
+        /*this._routeParamsSubscription = this.route.params.subscribe(params => {
+            let lang = params["lang"];
+            this.messageService.useLanguage(lang);
         });
-        console.log(this.messageService.getCurrentLanguage());
+        console.log(this.messageService.getCurrentLanguage());*/
     };
     PortfolioComponent.prototype.ngOnDestroy = function () {
         if (this._routeParamsSubscription) {

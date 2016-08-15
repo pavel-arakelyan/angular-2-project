@@ -6,6 +6,7 @@ import { Tab } from './model/tab';
 import { TabService } from './service/tabs.service.ts';
 import { TabComponent } from './component/tab/tab.component.ts';
 import {MessageService} from "./service/message.service";
+import {LanguageService} from "./service/language.service";
 
 @Component({
     selector: 'my-app',
@@ -22,43 +23,24 @@ export class AppComponent {
     languages: string[] = ['en', 'ru'];
     currentLanguage:string;
 
-    constructor(private tabService: TabService, private messageService: MessageService) {
+    constructor(private tabService: TabService, private languageService: LanguageService) {
 
     }
 
     ngOnInit() {
-        //this.messageService.setDefaultLanguage('en');
-        //console.log(this.messageService.getCurrentLanguage());
-        //this.translate.use('en');
-        this.messageService.getCurrentLanguage().subscribe(currentLang =>{
+        this.languageService.getCurrentLanguage().subscribe(currentLang =>{
             this.currentLanguage = currentLang
         });
-        this.messageService.useLanguage(this.currentLanguage);
         this.tabService.getTabs()
             .then(tabs => this.tabs = tabs);
     }
 
-  /*  isCurrentLang(lang: string) {
-        return lang === this.messageService.getCurrentLanguage();
-    }*/
-
-    selectLang(lang: string) {
-        // set default;
-        this.messageService.useLanguage(lang);
+    isCurrentLang(lang: string) {
+        return lang === this.currentLanguage;
     }
 
+    selectLang(lang: string) {
+        this.languageService.useLanguage(lang);
+    }
 
- /*   initTranslate(translate: TranslateService): void{
-        let userLang = navigator.language.split('-')[0]; // use navigator lang if available
-        userLang = /(fr|en)/gi.test(userLang) ? userLang : 'en';
-
-        // optional, default is "en"
-        translate.setDefaultLang('en');
-        console.log(translate.getLangs());
-
-        // the lang to use, if the lang isn't available, it will use the current loader to get them
-        translate.use(userLang);
-        const value = translate.getTranslation(userLang);
-        value.subscribe(next => console.log(next['Dashboard']));
-    }*/
 }

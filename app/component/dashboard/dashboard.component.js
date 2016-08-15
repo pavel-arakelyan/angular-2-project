@@ -19,12 +19,11 @@ var DashboardComponent = (function () {
         this._routeParamsSubscription = null;
     }
     DashboardComponent.prototype.ngOnInit = function () {
-        var _this = this;
-        this._routeParamsSubscription = this.route.params.subscribe(function (params) {
-            var lang = params["lang"];
-            _this.messageService.useLanguage(lang);
-        });
-        console.log(this.messageService.getCurrentLanguage());
+        /*      this._routeParamsSubscription = this.route.params.subscribe(params => {
+                  let lang = params["lang"];
+                  this.messageService.useLanguage(lang);
+              });
+              console.log(this.messageService.getCurrentLanguage());*/
     };
     DashboardComponent.prototype.ngOnDestroy = function () {
         if (this._routeParamsSubscription) {
